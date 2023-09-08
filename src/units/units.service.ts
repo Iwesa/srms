@@ -44,4 +44,12 @@ export class UnitsService {
             relations: ['units']
         })
     }
+
+    async update(unit: Unit): Promise<any> {
+        return this.unitRepository.save(unit)
+    }
+
+    async delete(code: string) {
+        return this.unitRepository.delete(code)
+    }
 }

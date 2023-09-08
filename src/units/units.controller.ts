@@ -31,4 +31,15 @@ export class UnitsController {
   async getUnits(@Param('id') id: number): Promise<any> {
     return this.unitsService.getUnits(id);
   }
+
+  @Post(':code/update')
+  async update(@Param('code') code: string, @Body() unit: Unit) {
+    unit.code = code
+    return this.unitsService.update(unit)
+  }
+
+  @Post(':code/delete')
+  async delete(@Param('code') code: string) {
+    return this.unitsService.delete(code)
+  }
 }
