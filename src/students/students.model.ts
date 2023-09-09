@@ -8,4 +8,6 @@ export class Student {
     lastName: string;
 
     email: string;
+
+    password?: string;
 }

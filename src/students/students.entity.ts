@@ -19,6 +19,9 @@ export class Students {
     @Column()
     email: string;
 
+    @Column()
+    password: string;
+
     @OneToMany(() => Units, (unit) => unit.student)
     units: Units[]
 }
