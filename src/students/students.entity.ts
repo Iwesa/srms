@@ -19,7 +19,7 @@ export class Students {
     @Column()
     email: string;
 
-    @Column()
+    @Column({ nullable: true })
     password: string;
 
     @OneToMany(() => Units, (unit) => unit.student)

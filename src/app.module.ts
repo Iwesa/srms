@@ -18,7 +18,7 @@ import { Units } from './units/units.entity';
       synchronize: true
     }),
     StudentsModule,
-    UnitsModule
+    UnitsModule,
   ],
 })
-export class AppModule {}
+export class AppModule { }

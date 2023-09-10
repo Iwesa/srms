@@ -18,13 +18,16 @@ export class StudentsService {
         return this.studentRepository.find({ relations: ['units'] })
     }
 
-    async findOne(id: number): Promise<Students> {
+    async findOne(id: any): Promise<Students> {
         return this.studentRepository.findOne({
             where: {
                 id: id
             }
-        }
-        )
+        })
+    }
+
+    async getStudent(regNo: string): Promise<Students> {
+        return this.studentRepository.findOneBy({ regNo })
     }
 
     async deleteStudent(id: number): Promise<any> {
@@ -32,6 +35,10 @@ export class StudentsService {
     }
 
     async update(student: Student): Promise<any> {
+        return this.studentRepository.save(student)
+    }
+
+    async register(student: Student): Promise<any> {
         return this.studentRepository.save(student)
     }
 }
