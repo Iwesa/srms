@@ -1,7 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { UnitsService } from './units.service';
 import { Unit } from './units.model';
-import { StudentsService } from 'src/students/students.service';
 
 @Controller('units')
 export class UnitsController {
@@ -38,8 +37,8 @@ export class UnitsController {
     return this.unitsService.update(unit)
   }
 
-  @Delete(':code/delete')
-  async delete(@Param('code') code: string) {
-    return this.unitsService.delete(code)
+  @Delete(':id/delete')
+  async delete(@Param('id') id: number) {
+    return this.unitsService.delete(id)
   }
 }

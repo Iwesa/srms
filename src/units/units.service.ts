@@ -49,7 +49,7 @@ export class UnitsService {
         return this.unitRepository.save(unit)
     }
 
-    async delete(code: string) {
-        return this.unitRepository.delete(code)
+    async delete(id: number) {
+        return this.unitRepository.delete(id)
     }
 }
