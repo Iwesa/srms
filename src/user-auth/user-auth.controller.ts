@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Req, Res, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Get, Post, Req, Res, UnauthorizedException } from '@nestjs/common';
 import { UserAuthService } from './user-auth.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
@@ -27,10 +27,10 @@ export class UserAuthController {
     ) {
         const student = await this.userAuthService.getStudent(regNo)
         if (!student) {
-            throw new UnauthorizedException('Invalid credentials')
+            throw new BadRequestException("Invalid credentials")
         }
         if (!await bcrypt.compare(password, student.password)) {
-            throw new UnauthorizedException('Invalid credentials')
+            throw new BadRequestException("Invalid credentials")
         }
         const jwt = await this.jwtService.signAsync({ 'id': student.id })
         response.cookie('jwt', jwt, { httpOnly: true })
