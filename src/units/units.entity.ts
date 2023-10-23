@@ -1,10 +1,13 @@
 import { Students } from "src/students/students.entity";
-import { Column, Entity, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
 
 @Entity()
 export class Units {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
+    id: number
+
+    @Column()
     code: string;
 
     @Column()

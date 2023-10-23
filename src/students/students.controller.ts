@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { StudentsService } from './students.service';
 import { Students } from './students.entity';
 import { Student } from './students.model';
-import { Unit } from 'src/units/units.model';
 
 @Controller('students')
 export class StudentsController {

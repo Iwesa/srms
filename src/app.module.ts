@@ -4,6 +4,7 @@ import { StudentsModule } from './students/students.module';
 import { UnitsModule } from './units/units.module';
 import { Students } from './students/students.entity';
 import { Units } from './units/units.entity';
+import { UserAuthModule } from './user-auth/user-auth.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { Units } from './units/units.entity';
       synchronize: true
     }),
     StudentsModule,
-    UnitsModule
+    UnitsModule,
+    UserAuthModule
   ],
 })
 export class AppModule {}
